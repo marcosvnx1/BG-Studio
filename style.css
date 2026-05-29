@@ -246,6 +246,18 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   border-radius: 2px;
 }
 
+.nav__hamburger.open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.nav__hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__hamburger.open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
 /* ---------- HERO ---------- */
 .hero {
   min-height: 100dvh;

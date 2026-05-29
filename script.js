@@ -105,6 +105,7 @@ window.addEventListener('scroll', () => {
 
 hamburger.addEventListener('click', () => {
   const open = navLinks.classList.toggle('mobile-open');
+  hamburger.classList.toggle('open', open);
   hamburger.setAttribute('aria-expanded', open);
   if (open) lockScroll(); else unlockScroll();
 });
