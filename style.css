@@ -246,18 +246,6 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   border-radius: 2px;
 }
 
-.nav__hamburger.open span:nth-child(1) {
-  transform: translateY(6.5px) rotate(45deg);
-}
-
-.nav__hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav__hamburger.open span:nth-child(3) {
-  transform: translateY(-6.5px) rotate(-45deg);
-}
-
 /* ---------- HERO ---------- */
 .hero {
   min-height: 100dvh;
@@ -1546,4 +1534,29 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   .contato__deco-inner { padding: 2rem 1.5rem; }
   .modal__content { padding: 1.5rem; }
   .lightbox__prev, .lightbox__next { display: none; }
+}
+
+.nav__mobile-close {
+  display: none;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--rose-100);
+  color: var(--ink);
+  font-size: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.nav__links.mobile-open .nav__mobile-close {
+  display: flex;
+}
+
+.nav__mobile-close:hover {
+  background: var(--rose-400);
+  color: var(--white);
 }

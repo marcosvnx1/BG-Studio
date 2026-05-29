@@ -105,7 +105,6 @@ window.addEventListener('scroll', () => {
 
 hamburger.addEventListener('click', () => {
   const open = navLinks.classList.toggle('mobile-open');
-  hamburger.classList.toggle('open', open);
   hamburger.setAttribute('aria-expanded', open);
   if (open) lockScroll(); else unlockScroll();
 });
@@ -616,6 +615,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNav();
   initCardTilt();
   initLazyImages();
+
+  document.getElementById('navMobileClose').addEventListener('click', () => {
+  navLinks.classList.remove('mobile-open');
+  unlockScroll();
+});
 
   // Small stagger on initial hero elements
   $$('.hero .reveal').forEach((el, i) => {
