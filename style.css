@@ -200,7 +200,7 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
 }
 
 .nav__link {
-  font-size: .875rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--ink-60);
   letter-spacing: .03em;
@@ -508,7 +508,7 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   height: 500px;
   object-fit: cover;
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-1g);
 }
 
 .sobre__img-card {
@@ -517,7 +517,7 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   background: var(--white);
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-1g);
   display: flex;
   flex-direction: column;
   gap: .2rem;
