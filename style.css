@@ -184,6 +184,8 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   font-size: 1.5rem;
   font-weight: 500;
   color: var(--ink);
+  cursor: pointer;
+  transition: var(--transition);
 }
 
 .logo-v {
