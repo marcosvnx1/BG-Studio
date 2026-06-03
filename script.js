@@ -47,7 +47,7 @@ const projects = [
   {
     title: 'Aniversário',
     cat: 'Motion Design',
-    img: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=900&q=85',
+    img: 'imagens/iconCat.png',
     video: 'videos/Aniversário 1 ano.mp4',
     desc: 'Animação de intro com partículas luminosas e efeito neon para canal no YouTube. Produzida no After Effects com partículas 3D, sincronização musical e exportação em múltiplos formatos. Entrega inclui versão com e sem som.',
     tags: ['After Effects', 'Partículas', 'YouTube', 'Loop'],
