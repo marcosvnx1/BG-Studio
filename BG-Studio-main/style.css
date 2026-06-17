@@ -125,6 +125,18 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   background: var(--rose-400);
   color: var(--white);
   box-shadow: 0 4px 20px rgba(245,64,160,.35);
+
+  display: inline-flex;
+  width: fit-content;
+  margin-left: 0;
+}
+
+.videos__button {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 250px;
+  padding-top: 50px;
 }
 
 .btn--primary:hover {
