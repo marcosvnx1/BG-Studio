@@ -129,6 +129,7 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   display: inline-flex;
   width: fit-content;
   margin-left: 0;
+  
 }
 
 .videos__button {
@@ -1524,9 +1525,14 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   .videos__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+
 @media (max-width: 768px) {
   .nav__links { display: none; }
   .nav__hamburger { display: flex; }
+  .videos__button {
+  justify-content: center;
+  padding-right: 0;
+}
 
   .portfolio__grid { grid-template-columns: 1fr; }
   .galeria__grid { grid-template-columns: repeat(2, 1fr); }
@@ -1548,7 +1554,7 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   .contato__deco-inner { padding: 2rem 1.5rem; }
   .modal__content { padding: 1.5rem; }
   .lightbox__prev, .lightbox__next { display: none; }
-}
+} 
 
 .nav__mobile-close {
   display: none;
