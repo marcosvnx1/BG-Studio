@@ -91,6 +91,36 @@ const $$ = (selector) => document.querySelectorAll(selector);
 function lockScroll() { document.body.style.overflow = 'hidden'; }
 function unlockScroll() { document.body.style.overflow = ''; }
 
+/* Pede tela cheia no elemento de vídeo, com fallback pra cada navegador
+   (Android/desktop usam a API padrão; iPhone usa a API nativa do <video>) */
+function requestVideoFullscreen(videoEl) {
+  try {
+    if (videoEl.requestFullscreen) {
+      videoEl.requestFullscreen().catch(() => {});
+    } else if (videoEl.webkitEnterFullscreen) {
+      // iPhone Safari — API nativa de fullscreen do <video>
+      videoEl.webkitEnterFullscreen();
+    } else if (videoEl.webkitRequestFullscreen) {
+      videoEl.webkitRequestFullscreen();
+    } else if (videoEl.mozRequestFullScreen) {
+      videoEl.mozRequestFullScreen();
+    } else if (videoEl.msRequestFullscreen) {
+      videoEl.msRequestFullscreen();
+    }
+  } catch (e) { /* navegador não suporta — segue normal dentro do modal */ }
+}
+
+/* Sai da tela cheia, se estiver ativa, ao fechar o modal de vídeo */
+function exitVideoFullscreen() {
+  const fsElement = document.fullscreenElement || document.webkitFullscreenElement ||
+    document.mozFullScreenElement || document.msFullscreenElement;
+  if (!fsElement) return;
+  if (document.exitFullscreen) document.exitFullscreen().catch(() => {});
+  else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+  else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+  else if (document.msExitFullscreen) document.msExitFullscreen();
+}
+
 /* ================================================
    NAV — SCROLL EFFECT & HAMBURGER
    ================================================ */
@@ -394,10 +424,12 @@ function initVideos() {
   lockScroll();
 
   videoModalPlayer.play().catch(() => {});
+  requestVideoFullscreen(videoModalPlayer);
 }
 
 function closeVideoModal() {
   videoModalPlayer.pause();
+  exitVideoFullscreen();
 
   // limpa o SOURCE certo
   const source = videoModalPlayer.querySelector("source");
