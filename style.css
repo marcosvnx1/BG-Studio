@@ -1570,6 +1570,7 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   align-items: center;
   justify-content: center;
   transition: var(--transition);
+  z-index: 9999;
 }
 
 .nav__links.mobile-open .nav__mobile-close {
