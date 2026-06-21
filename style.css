@@ -1625,6 +1625,12 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
 
   .videos__arrow:active { background: var(--rose-400); border-color: var(--rose-400); }
 
+  .videos__arrow.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.85);
+  }
+
   .videos__arrow--prev { left: .25rem; }
   .videos__arrow--next { right: .25rem; }
 

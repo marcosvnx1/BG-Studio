@@ -464,9 +464,24 @@ function closeVideoModal() {
     videosGrid.scrollBy({ left: direction * (cardWidth + gap), behavior: 'smooth' });
   }
 
-  if (videosPrev && videosNext) {
+  function updateArrowsState() {
+    if (!videosGrid || !videosPrev || !videosNext) return;
+    const maxScroll = videosGrid.scrollWidth - videosGrid.clientWidth;
+    const atStart = videosGrid.scrollLeft <= 4;
+    const atEnd = videosGrid.scrollLeft >= maxScroll - 4;
+
+    videosPrev.classList.toggle('is-hidden', atStart);
+    videosNext.classList.toggle('is-hidden', atEnd || maxScroll <= 0);
+  }
+
+  if (videosPrev && videosNext && videosGrid) {
     videosPrev.addEventListener('click', () => scrollToCard(-1));
     videosNext.addEventListener('click', () => scrollToCard(1));
+
+    videosGrid.addEventListener('scroll', updateArrowsState, { passive: true });
+    window.addEventListener('resize', updateArrowsState);
+    window.addEventListener('load', updateArrowsState);
+    updateArrowsState();
   }
 
   videoModalBackdrop.addEventListener('click', closeVideoModal);
