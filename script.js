@@ -450,6 +450,25 @@ function closeVideoModal() {
     });
   });
 
+  // Carrossel mobile — setas prev/next
+  const videosGrid = $('#videosGrid');
+  const videosPrev = $('#videosPrev');
+  const videosNext = $('#videosNext');
+
+  function scrollToCard(direction) {
+    if (!videosGrid) return;
+    const card = videosGrid.querySelector('.video-card');
+    if (!card) return;
+    const cardWidth = card.getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(videosGrid).gap) || 0;
+    videosGrid.scrollBy({ left: direction * (cardWidth + gap), behavior: 'smooth' });
+  }
+
+  if (videosPrev && videosNext) {
+    videosPrev.addEventListener('click', () => scrollToCard(-1));
+    videosNext.addEventListener('click', () => scrollToCard(1));
+  }
+
   videoModalBackdrop.addEventListener('click', closeVideoModal);
   videoModalClose.addEventListener('click', closeVideoModal);
 

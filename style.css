@@ -829,10 +829,19 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   color: var(--white);
 }
 
+.videos__carousel {
+  position: relative;
+}
+
 .videos__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
+}
+
+/* Setas de navegação do carrossel — usadas apenas no mobile */
+.videos__arrow {
+  display: none;
 }
 
 .video-card {
@@ -892,6 +901,24 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   font-size: .72rem;
   padding: .2rem .55rem;
   border-radius: 4px;
+}
+
+.video-card__badge {
+  position: absolute;
+  top: .6rem; left: .6rem;
+  background: var(--rose-400);
+  color: var(--white);
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .25rem .6rem;
+  border-radius: 4px;
+}
+
+/* Card de destaque dentro do carrossel — só aparece no mobile */
+.video-card--featured {
+  display: none;
 }
 
 .video-card__info {
@@ -1543,6 +1570,63 @@ button { cursor: pointer; font-family: var(--ff-body); border: none; background:
   .clientes__grid { grid-template-columns: repeat(2, 1fr); }
 
   .videos__grid { grid-template-columns: 1fr; }
+
+  /* ---------- VIDEOMAKER: CARROSSEL MOBILE ---------- */
+
+  /* O player grande de destaque some; ele passa a ser um card do carrossel */
+  .videos__featured {
+    display: none;
+  }
+
+  .video-card--featured {
+    display: block;
+  }
+
+  .videos__carousel {
+    margin: 0 -1.25rem;
+    padding: 0 1.25rem;
+  }
+
+  .videos__grid {
+    display: flex;
+    grid-template-columns: unset;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    gap: 1rem;
+    padding-bottom: .5rem;
+    scrollbar-width: none;
+  }
+
+  .videos__grid::-webkit-scrollbar { display: none; }
+
+  .video-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+
+  .videos__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 80px;
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(42,31,26,.65);
+    backdrop-filter: blur(6px);
+    transition: var(--transition);
+  }
+
+  .videos__arrow:active { background: var(--rose-400); border-color: var(--rose-400); }
+
+  .videos__arrow--prev { left: .25rem; }
+  .videos__arrow--next { right: .25rem; }
 
   .footer__inner { flex-direction: column; text-align: center; }
 }

@@ -275,7 +275,7 @@
         <p class="section-sub">Transformando ideias em movimento. Cobertura de eventos, anúncios e vídeos comerciais em Aracaju, Sergipe.</p>
       </div>
 
-      <div class="videos__featured reveal">
+      <div class="videos__featured reveal" id="videosFeatured">
         <div class="video-featured__wrap">
           <video class="video-featured__player" id="featuredVideo"
             poster="imagens/IconCat.png" controls preload="none">
@@ -295,7 +295,35 @@
         </div>
       </div>
 
-      <div class="videos__grid">
+      <div class="videos__carousel">
+        <button class="videos__arrow videos__arrow--prev" id="videosPrev" aria-label="Vídeo anterior">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M11 3l-6 6 6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="videos__arrow videos__arrow--next" id="videosNext" aria-label="Próximo vídeo">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M7 3l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      <div class="videos__grid" id="videosGrid">
+        <div class="video-card video-card--featured reveal" data-video-src="videos/Aniversário 1 ano.mp4"
+          data-poster="imagens/IconCat.png">
+          <div class="video-card__thumb">
+            <img src="imagens/IconCat.png" alt="Aniversário" />
+            <div class="video-card__play">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5 4l12 6-12 6V4z" fill="#fff" />
+              </svg>
+            </div>
+            <span class="video-card__badge">Em destaque</span>
+          </div>
+          <div class="video-card__info">
+            <h4>Aniversário</h4>
+            <p>Cobertura completa de aniversário de 1 ano</p>
+          </div>
+        </div>
+
         <div class="video-card reveal" data-video-src="videos/Noite das Estrelas.mp4"
           data-poster="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80">
           <div class="video-card__thumb">
@@ -346,6 +374,7 @@
             <p>Pack de stories com transições suaves</p>
           </div>
         </div>
+      </div>
       </div>
     </div>
 
